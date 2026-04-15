@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "7e19bb32-db8f-4e61-98fd-ad12e267f4d4",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 561,
+  "height": 607,
+  "platformSettings": {},
+  "subMetas": {
+    "关注抖音弹窗-2": {
+      "ver": "1.0.6",
+      "uuid": "9339f395-2f2a-4c86-ac9a-392bc8d105e4",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "7e19bb32-db8f-4e61-98fd-ad12e267f4d4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 561,
+      "height": 607,
+      "rawWidth": 561,
+      "rawHeight": 607,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

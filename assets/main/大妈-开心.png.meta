@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "8d185a92-e5db-4e63-be29-a60ed279393f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 259,
+  "height": 358,
+  "platformSettings": {},
+  "subMetas": {
+    "大妈-开心": {
+      "ver": "1.0.6",
+      "uuid": "f48d9a00-a278-47fe-b8b3-c74f1924819b",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "8d185a92-e5db-4e63-be29-a60ed279393f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 259,
+      "height": 358,
+      "rawWidth": 259,
+      "rawHeight": 358,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

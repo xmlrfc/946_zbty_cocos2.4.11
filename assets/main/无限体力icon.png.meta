@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "d5e2661d-a3d7-4b88-8804-4d201c5a1130",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 115,
+  "height": 111,
+  "platformSettings": {},
+  "subMetas": {
+    "无限体力icon": {
+      "ver": "1.0.6",
+      "uuid": "9ca7fd9d-2732-4b8b-ad88-81ae7987e47a",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "d5e2661d-a3d7-4b88-8804-4d201c5a1130",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 115,
+      "height": 111,
+      "rawWidth": 115,
+      "rawHeight": 111,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

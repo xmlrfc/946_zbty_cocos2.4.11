@@ -1,0 +1,21 @@
+{
+  "ver": "1.1.3",
+  "uuid": "559f352e-ad85-4cde-8e04-505219e9f588",
+  "importer": "folder",
+  "isBundle": true,
+  "bundleName": "",
+  "priority": 1,
+  "compressionType": {
+    "qgame": "subpackage"
+  },
+  "optimizeHotUpdate": {
+    "qgame": false
+  },
+  "inlineSpriteFrames": {
+    "qgame": false
+  },
+  "isRemoteBundle": {
+    "qgame": false
+  },
+  "subMetas": {}
+}

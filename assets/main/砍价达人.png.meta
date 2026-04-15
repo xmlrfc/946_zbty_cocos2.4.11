@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "a4db7272-d87c-482b-87fa-8742eed5c4b4",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 666,
+  "height": 250,
+  "platformSettings": {},
+  "subMetas": {
+    "砍价达人": {
+      "ver": "1.0.6",
+      "uuid": "5ca14023-450c-450a-aaa9-4fb3dfdc892f",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "a4db7272-d87c-482b-87fa-8742eed5c4b4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 666,
+      "height": 250,
+      "rawWidth": 666,
+      "rawHeight": 250,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

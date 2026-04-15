@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "d2bcf0ad-efca-4dfd-817e-ad95f17b2bd7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 325,
+  "height": 141,
+  "platformSettings": {},
+  "subMetas": {
+    "看视频加体力": {
+      "ver": "1.0.6",
+      "uuid": "1319ce2f-d24f-419b-97aa-1743f68643eb",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "d2bcf0ad-efca-4dfd-817e-ad95f17b2bd7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 325,
+      "height": 141,
+      "rawWidth": 325,
+      "rawHeight": 141,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

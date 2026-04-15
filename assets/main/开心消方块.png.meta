@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "d6c20328-42f7-4326-a13f-d4d10bc1fb9e",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 666,
+  "height": 250,
+  "platformSettings": {},
+  "subMetas": {
+    "开心消方块": {
+      "ver": "1.0.6",
+      "uuid": "36655ebe-b2f5-4ed6-b861-5894d6c5d32e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "d6c20328-42f7-4326-a13f-d4d10bc1fb9e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 666,
+      "height": 250,
+      "rawWidth": 666,
+      "rawHeight": 250,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

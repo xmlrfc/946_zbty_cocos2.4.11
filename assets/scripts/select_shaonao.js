@@ -1,0 +1,68 @@
+var n;
+var i = this && this.__extends || (n = function (e, o) {
+  return (n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, o) {
+    e.__proto__ = o;
+  } || function (e, o) {
+    for (var t in o) {
+      if (Object.prototype.hasOwnProperty.call(o, t)) {
+        e[t] = o[t];
+      }
+    }
+  })(e, o);
+}, function (e, o) {
+  function t() {
+    this.constructor = e;
+  }
+  n(e, o);
+  e.prototype = o === null ? Object.create(o) : (t.prototype = o.prototype, new t());
+});
+var r = this && this.__decorate || function (e, o, t, n) {
+  var i;
+  var r = arguments.length;
+  var a = r < 3 ? o : n === null ? n = Object.getOwnPropertyDescriptor(o, t) : n;
+  if (typeof Reflect == "object" && typeof Reflect.decorate == "function") {
+    a = Reflect.decorate(e, o, t, n);
+  } else {
+    for (var c = e.length - 1; c >= 0; c--) {
+      if (i = e[c]) {
+        a = (r < 3 ? i(a) : r > 3 ? i(o, t, a) : i(o, t)) || a;
+      }
+    }
+  }
+  if (r > 3 && a) {
+    Object.defineProperty(o, t, a);
+  }
+  return a;
+};
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var a = cc._decorator;
+var c = a.ccclass;
+a.property;
+var l = function (e) {
+  function o() {
+    return e !== null && e.apply(this, arguments) || this;
+  }
+  i(o, e);
+  o.prototype.onLoad = function () {
+    var e = this.node;
+    this.node.on(cc.Node.EventType.TOUCH_END, function () {
+      var o = cc.instantiate(e);
+      o.x = -375;
+      o.y = 0;
+      o.removeComponent("select_shaonao");
+      o.addComponent("moveCreator_shaonao");
+      o.addComponent("clockwiseSelect_shaonao");
+      o.parent = cc.find("Canvas").getChildByName("level");
+      window.creatorHistory.push(o);
+    });
+  };
+  o.prototype.start = function () {};
+  o.prototype.onDestroy = function () {};
+  o.prototype.click = function () {};
+  return r([c], o);
+}(cc.Component);
+exports.default = l;

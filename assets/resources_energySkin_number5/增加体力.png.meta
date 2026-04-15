@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "c08c9f6f-49ca-4182-b3da-ead3e08afde5",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 653,
+  "height": 637,
+  "platformSettings": {},
+  "subMetas": {
+    "增加体力": {
+      "ver": "1.0.6",
+      "uuid": "8ae558f7-fbdf-43df-b31c-ca1eb22e7810",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "c08c9f6f-49ca-4182-b3da-ead3e08afde5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 653,
+      "height": 637,
+      "rawWidth": 653,
+      "rawHeight": 637,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "2014b560-fb80-40ef-a8ec-b8644a11beb3",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 259,
+  "height": 358,
+  "platformSettings": {},
+  "subMetas": {
+    "大妈-伤心": {
+      "ver": "1.0.6",
+      "uuid": "26018864-fba2-4440-ae86-96b64e93ae1c",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "2014b560-fb80-40ef-a8ec-b8644a11beb3",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 259,
+      "height": 358,
+      "rawWidth": 259,
+      "rawHeight": 358,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
