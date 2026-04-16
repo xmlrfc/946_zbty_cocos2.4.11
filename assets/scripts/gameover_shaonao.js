@@ -56,21 +56,33 @@ var s = function (e) {
   o.prototype.onLoad = function () {
     window.gameover = this;
     this.mask.active = false;
-    if (window.miniPlatForm == "tt" && this.btn) {
-      this.btn.x = 0;
-      this.btn.y = -240;
-    }
-    if (window.miniPlatForm == "qq" && this.btn) {
-      this.btn.x = 0;
-      this.btn.y = -250;
-    } else if (window.miniPlatForm == "ks" && this.btn) {
-      this.btn.x = 0;
-      this.btn.y = -430;
-    } else if (window.miniPlatForm == "oppo" && this.btn) {
-      this.btn.x = 0;
-      this.btn.y = 200;
-    }
+    // if (window.miniPlatForm == "tt" && this.btn) {
+    //   this.btn.x = 0;
+    //   this.btn.y = -240;
+    // }
+    // if (window.miniPlatForm == "qq" && this.btn) {
+    //   this.btn.x = 0;
+    //   this.btn.y = -250;
+    // } else if (window.miniPlatForm == "ks" && this.btn) {
+    //   this.btn.x = 0;
+    //   this.btn.y = -430;
+    // } else if (window.miniPlatForm == "oppo" && this.btn) {
+    //   this.btn.x = 0;
+    //   this.btn.y = 200;
+    // }
     this.showGameoverAd();
+    // ========== 新增：播放我的刀盾 ==========
+    cc.resources.load("wddd1", cc.AudioClip, (err, clip) => {
+        if (err) {
+            console.error("音效加载失败:", err);
+            return;
+        }
+        // 加载完成后才播放
+        console.log("我的刀盾");
+        cc.audioEngine.playEffect(clip, false);
+    });
+    
+    // =======================================
   };
   o.prototype.start = function () {
     if (window.model == 5 && this.reviveNode) {

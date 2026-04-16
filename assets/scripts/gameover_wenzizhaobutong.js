@@ -56,17 +56,17 @@ var u = function (e) {
   i(o, e);
   o.prototype.onLoad = function () {
     window.gameover = this;
-    if (window.miniPlatForm == "qq" || window.miniPlatForm == "tt") {
-      this.btn.y = -260;
-    } else if (window.miniPlatForm == "ks") {
-      this.btn.y = -430;
-      if (this.node.getChildByName("btn_video")) {
-        this.node.getChildByName("btn_video").active = true;
-      }
-    } else if (window.miniPlatForm == "oppo") {
-      this.btn.y = -100;
-      this.node.getChildByName("btn_video").y = 100;
-    }
+    // if (window.miniPlatForm == "qq" || window.miniPlatForm == "tt") {
+    //   this.btn.y = -260;
+    // } else if (window.miniPlatForm == "ks") {
+    //   this.btn.y = -430;
+    //   if (this.node.getChildByName("btn_video")) {
+    //     this.node.getChildByName("btn_video").active = true;
+    //   }
+    // } else if (window.miniPlatForm == "oppo") {
+    //   this.btn.y = -100;
+    //   this.node.getChildByName("btn_video").y = 100;
+    // }
     var e = Number(cc.sys.localStorage.getItem("level" + window.model + "_wenzizhaobutong") || 0);
     var o = (101 - Math.log(200) / Math.log(e)).toFixed(1);
     if (o > 99.9) {
@@ -81,6 +81,18 @@ var u = function (e) {
       this.rankLabel.string = "您已超过全球" + o + "%的玩家";
     }
     this.showGameoverAd();
+    // ========== 新增：播放我的刀盾 ==========
+    cc.resources.load("wddd1", cc.AudioClip, (err, clip) => {
+        if (err) {
+            console.error("音效加载失败:", err);
+            return;
+        }
+        // 加载完成后才播放
+        console.log("我的刀盾");
+        cc.audioEngine.playEffect(clip, false);
+    });
+    
+    // =======================================
   };
   o.prototype.start = function () {};
   o.prototype.clickNext = function () {

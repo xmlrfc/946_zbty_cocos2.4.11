@@ -140,6 +140,8 @@ export default class Banner extends cc.Component {
     }
 
     CreateVideo(callback) {
+        callback.bind(this.VideoNode)();
+        return
         // cc.resources.load("VideoTips",(err,prefab) =>{
         //     if(err){
         //         console.log("预制体不存在")
@@ -225,6 +227,8 @@ export default class Banner extends cc.Component {
     lastAdTime = 0;
     isCreatingAd: boolean = false;
     CreateCustomAd() {
+        return
+        
         if(this.lastAdTime==null ||this.lastAdTime==undefined) this.lastAdTime=0;
         // 获取当前时间（毫秒级）
         const currentTime = Date.now();
