@@ -6,7 +6,6 @@ var t = cc.Class({
     lineWidth: 5
   },
   editor: {
-    menu: false,
     requireComponent: cc.RigidBody
   },
   _createShape: function () {

@@ -81,18 +81,6 @@ var u = function (e) {
       this.rankLabel.string = "您已超过全球" + o + "%的玩家";
     }
     this.showGameoverAd();
-    // ========== 新增：播放我的刀盾 ==========
-    cc.resources.load("wddd1", cc.AudioClip, (err, clip) => {
-        if (err) {
-            console.error("音效加载失败:", err);
-            return;
-        }
-        // 加载完成后才播放
-        console.log("我的刀盾");
-        cc.audioEngine.playEffect(clip, false);
-    });
-    
-    // =======================================
   };
   o.prototype.start = function () {};
   o.prototype.clickNext = function () {
