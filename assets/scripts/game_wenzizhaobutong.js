@@ -57,13 +57,13 @@ var d = function (e) {
   o.prototype.loadHint = function () {
     var e = cc.sys.localStorage.getItem("hintNum_wenzizhaobutong");
     if (!e) {
-      var o = 10;
+      var o = 3;
       if (window.miniPlatForm == "oppo") {
-        o = 15;
+        o = 3;
       } else if (window.miniPlatForm == "tt" || window.miniPlatForm == "ks") {
-        o = 0;
+        o = 3;
       } else if (window.miniPlatForm == "vivoApp") {
-        o = 1;
+        o = 3;
       }
       cc.sys.localStorage.setItem("hintNum_wenzizhaobutong", o + "");
       e = o;
