@@ -250,11 +250,11 @@ var h = function (e) {
               this.diffNode = s;
               s.getChildByName("item").getComponent(cc.Sprite).spriteFrame = a;
               s.on(cc.Node.EventType.TOUCH_END, this.clickSuccess, this);
-              Banner.Instance.CreateCustomAd();
+              // Banner.Instance.ShowCustomAd();
             } else {
               s.getChildByName("item").getComponent(cc.Sprite).spriteFrame = r;
               s.on(cc.Node.EventType.TOUCH_END, this.clickFail, this);
-              Banner.Instance.CreateCustomAd();
+              // Banner.Instance.ShowCustomAd();
             }
             s.getChildByName("item").getComponent(cc.Sprite).sizeMode = 1;
             if (l == i) {
@@ -301,6 +301,7 @@ var h = function (e) {
         e.judgeShowWinUI(1);
       }, 0.5);
       console.log("success");
+      Banner.Instance.ShowCustomAd();
     }
   };
   o.prototype.showTips = function () {

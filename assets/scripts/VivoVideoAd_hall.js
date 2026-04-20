@@ -1,3 +1,5 @@
+const { default: Banner } = require("./Banner");
+
 var n;
 var i = this && this.__extends || (n = function (e, o) {
   return (n = Object.setPrototypeOf || {
@@ -52,6 +54,12 @@ var l = function (e) {
   };
   o.prototype.start = function () {};
   o.prototype.initRewardedAd = function (e, o) {
+    Banner.Instance.ShowVideoAd(() => {
+      e();
+    }, () => {
+      o();
+    });
+    return
     if (window.noAdFlag) {
       e();
     } else {

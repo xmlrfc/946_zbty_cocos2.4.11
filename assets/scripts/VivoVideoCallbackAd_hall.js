@@ -1,3 +1,5 @@
+const { default: Banner } = require("./Banner");
+
 var n;
 var i = this && this.__extends || (n = function (e, o) {
   return (n = Object.setPrototypeOf || {

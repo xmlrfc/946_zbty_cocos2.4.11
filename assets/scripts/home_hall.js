@@ -117,9 +117,9 @@ var me = function (e) {
   }
   i(o, e);
   o.prototype.onLoad = function () {
-    setInterval(() => {
-      Banner.Instance.CreateCustomAd();
-    }, 20000);
+    // setInterval(() => {
+    //   Banner.Instance.ShowCustomAd();
+    // }, 20000);
     window.homeHall = this;
     window.currentLevel = undefined;
     var e = this.node.getChildByName("bgCopy");
@@ -297,7 +297,7 @@ var me = function (e) {
     }
   };
   o.prototype.oppoStartGame = function () {
-    Banner.Instance.CreateCustomAd();
+    Banner.Instance.ShowCustomAd();
     this.node.getChildByName("bgCopy").active = false;
   };
   o.prototype.oppoShowBgCopy = function () {
@@ -327,17 +327,17 @@ var me = function (e) {
   };
   o.prototype.shaonao = function (e, o) {
     l.loadGame(o);
-    Banner.Instance.CreateCustomAd();
+    Banner.Instance.ShowCustomAd();
   };
   o.prototype.shaonaoNew = function (e, o) {
     d.loadGame(o);
-    Banner.Instance.CreateCustomAd();
+    Banner.Instance.ShowCustomAd();
   };
   o.prototype.wadong = function (e, o) {
     w.loadGame(o);
   };
   o.prototype.wenzizhaobutong = function (e, o) {
-    Banner.Instance.CreateCustomAd();
+    Banner.Instance.ShowCustomAd();
     c.loadGame(o);
   };
   o.prototype.xiujiao = function (e, o) {

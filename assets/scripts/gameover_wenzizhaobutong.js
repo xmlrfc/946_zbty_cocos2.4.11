@@ -134,8 +134,10 @@ var u = function (e) {
     }
   };
   o.prototype.clickVideoGet = function () {
+    console.log("clickVideoGet");
     window.vivoVideoAd_hall.initRewardedAd(function () {
       window.powerControl.addPower(5);
+      window.adUtil.toast("获得体力+5");
       if (window.addPower && window.addPower.node) {
         window.addPower.node.destroy();
       }

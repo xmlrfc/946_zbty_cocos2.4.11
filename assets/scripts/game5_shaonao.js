@@ -421,7 +421,7 @@ var h = function (e) {
     }
   };
   o.prototype.showWinUI = function () {
-    Banner.Instance.CreateCustomAd();
+    Banner.Instance.ShowCustomAd();
     window.currentLevel += 1;
     if (window.currentLevel > window.maxLevel) {
       cc.sys.localStorage.setItem("level" + window.model + "_shaonao", window.currentLevel + "");
@@ -439,7 +439,7 @@ var h = function (e) {
     });
   };
   o.prototype.showFailUI = function () {
-    Banner.Instance.CreateCustomAd();
+    Banner.Instance.ShowCustomAd();
     window.game.loadFailFlag = true;
     cc.assetManager.loadBundle("resources_shaonao", function (e, o) {
       var t = window.adUtil.useHallData("gameoverSkin", "shaonao") ? window.adUtil.useHallData("gameoverSkin", "shaonao") : "5";

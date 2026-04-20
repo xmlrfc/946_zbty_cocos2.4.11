@@ -373,7 +373,7 @@ var h = function (e) {
             o = cc.instantiate(e);
             window.game.node.addChild(o);
             window.game.showFailUI();
-            Banner.Instance.CreateCustomAd();
+            Banner.Instance.ShowCustomAd();
             t.label = 3;
           case 3:
             return [2];
@@ -410,7 +410,7 @@ var h = function (e) {
     });
   };
   o.prototype.showWinUI = function () {
-    Banner.Instance.CreateCustomAd();
+    Banner.Instance.ShowCustomAd();
     window.currentLevel += 1;
     if (window.currentLevel > window.maxLevel) {
       cc.sys.localStorage.setItem("level" + window.model + "_shaonao", window.currentLevel + "");
