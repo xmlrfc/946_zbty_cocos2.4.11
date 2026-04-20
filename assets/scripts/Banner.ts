@@ -8,22 +8,22 @@ export default class Banner extends cc.Component {
   static RegionMask: boolean = false; //地区判断.true为有广告，false为无广告（不需要再此处手动修改，所有广告修改前往BannerManager）
   static IsLogin: boolean = false;
   private FreeInfo: number = 0; //免费跳过广告次数
-  static Owner: string = `著作权人：厦门魔芋互娱科技有限公司`; //健康忠告-著作权人
-  static License: string = `登记号:2024SR0338991`; //健康忠告-登记号
+  static Owner: string = `著作权人：厦门来日方长信息科技有限公司`; //健康忠告-著作权人
+  static License: string = `登记号:2026SA0054418`; //健康忠告-登记号
   static AgeLimit: number = 12; //健康忠告-适龄
 
   static Company: string = `厦门索润网络科技有限公司`; //公司
   static Email: string = `gamekf_666@sina.com`; //联系邮箱
 
   _appId: string = "115645129";
-  _videoId: string = "8qg06d7bkag1ome140";
-  _customId: string = "";
-  _bannerId: string = "";
+  _videoId: string = "68a7b09b41d648ca9d6cd182861159e9";
+  _customId: string = "b6009d8a84084de499ca60c00ba8f9c0";
+  _bannerId: string = "5a6f0687ada34a009e6a17f5fffcf1e7";
   _carouselBoxId: string = ""; // 轮播盒子广告ID
 
-  _year: number = 2025;
-  _month: number = 10;
-  _date: number = 15;
+  _year: number = 2026;
+  _month: number = 4;
+  _date: number = 22;
   _hour: number = 19;
 
   nativeAd = null; //原生广告

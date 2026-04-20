@@ -1,0 +1,19 @@
+{
+  "package": "com.hfmd.wddhd.vivominigame",
+  "name": "我的刀和盾",
+  "icon": "C:\\Users\\Admin\\Downloads\\wddhdvr.png",
+  "versionName": "1.0.0",
+  "versionCode": "1",
+  "minPlatformVersion": "1100",
+  "deviceOrientation": "portrait",
+  "logLevel": "log",
+  "npmPath": "",
+  "tinyPackageServer": "",
+  "useDebugKey": false,
+  "privatePath": "D:\\_Pref\\_sign\\release\\private.pem",
+  "certificatePath": "D:\\_Pref\\_sign\\release\\certificate.pem",
+  "disabledMode": "",
+  "showNpmPath": false,
+  "packFirstScreenRes": false,
+  "separateEngineMode": false
+}
