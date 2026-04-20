@@ -6,16 +6,20 @@
   "bundleName": "resources",
   "priority": 8,
   "compressionType": {
-    "qgame": "subpackage"
+    "qgame": "subpackage",
+    "quickgame": "subpackage"
   },
   "optimizeHotUpdate": {
-    "qgame": false
+    "qgame": false,
+    "quickgame": false
   },
   "inlineSpriteFrames": {
-    "qgame": false
+    "qgame": false,
+    "quickgame": false
   },
   "isRemoteBundle": {
-    "qgame": false
+    "qgame": false,
+    "quickgame": false
   },
   "subMetas": {}
 }
