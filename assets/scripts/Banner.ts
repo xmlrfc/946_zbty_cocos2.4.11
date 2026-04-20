@@ -8,8 +8,8 @@ export default class Banner extends cc.Component {
   static RegionMask: boolean = false; //地区判断.true为有广告，false为无广告（不需要再此处手动修改，所有广告修改前往BannerManager）
   static IsLogin: boolean = false;
   private FreeInfo: number = 0; //免费跳过广告次数
-  static Owner: string = `著作权人：厦门魔芋互娱科技有限公司`; //健康忠告-著作权人
-  static License: string = `登记号:2024SR0338991`; //健康忠告-登记号
+  static Owner: string = `著作权人：厦门来日方长信息科技有限公司`; //健康忠告-著作权人
+  static License: string = `登记号:2026SA0054418`;//健康忠告-登记号
   static AgeLimit: number = 12; //健康忠告-适龄
 
   static Company: string = `厦门索润网络科技有限公司`; //公司
@@ -44,6 +44,11 @@ export default class Banner extends cc.Component {
   }
   /**Banner广告 */
   ShowBannerAd() {
+
+    if (Banner.Is_WECHAT_GAME) {
+      return;
+    }
+
     //抖音直接退出
     if (Banner.Is_DY_GAME) {
       return;
@@ -84,6 +89,11 @@ export default class Banner extends cc.Component {
 
   /**原生广告 */
   ShowCustomAd() {
+
+    if (Banner.Is_WECHAT_GAME) {
+      return;
+    }
+
     //抖音直接退出
     if (Banner.Is_DY_GAME) {
       return;
@@ -134,6 +144,13 @@ export default class Banner extends cc.Component {
 
   /**激励视频 */
   ShowVideoAd(callback, args?: any) {
+    if (Banner.Is_WECHAT_GAME) {
+     
+      callback();
+      return;
+    }
+
+
     if (this.FreeInfo > 0) {
       //剩余免费跳过广告次数不为零就直接获取奖励
       

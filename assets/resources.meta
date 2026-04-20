@@ -6,16 +6,20 @@
   "bundleName": "resources",
   "priority": 8,
   "compressionType": {
-    "qgame": "subpackage"
+    "qgame": "subpackage",
+    "wechatgame": "subpackage"
   },
   "optimizeHotUpdate": {
-    "qgame": false
+    "qgame": false,
+    "wechatgame": false
   },
   "inlineSpriteFrames": {
-    "qgame": false
+    "qgame": false,
+    "wechatgame": false
   },
   "isRemoteBundle": {
-    "qgame": false
+    "qgame": false,
+    "wechatgame": false
   },
   "subMetas": {}
 }
