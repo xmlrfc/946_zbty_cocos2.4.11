@@ -301,6 +301,7 @@ var me = function (e) {
     this.node.getChildByName("bgCopy").active = false;
   };
   o.prototype.oppoShowBgCopy = function () {
+    Banner.Instance.ShowCustomAd();
     this.node.getChildByName("bgCopy").active = true;
   };
   o.prototype.clearRes = function () {};
