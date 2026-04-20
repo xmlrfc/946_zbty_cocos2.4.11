@@ -6,16 +6,20 @@
   "bundleName": "",
   "priority": 1,
   "compressionType": {
-    "qgame": "subpackage"
+    "qgame": "subpackage",
+    "honor-minigame": "subpackage"
   },
   "optimizeHotUpdate": {
-    "qgame": false
+    "qgame": false,
+    "honor-minigame": false
   },
   "inlineSpriteFrames": {
-    "qgame": false
+    "qgame": false,
+    "honor-minigame": false
   },
   "isRemoteBundle": {
-    "qgame": false
+    "qgame": false,
+    "honor-minigame": false
   },
   "subMetas": {}
 }
