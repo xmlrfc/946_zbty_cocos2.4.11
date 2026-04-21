@@ -1,7 +1,7 @@
 {
   "title": "zbty",
   "packageName": "org.cocos2d.demo",
-  "startScene": "9c401757-c7b2-433e-984c-07a434369639",
+  "startScene": "57e8603d-541c-4f31-a6ec-49681d6cf5ad",
   "excludeScenes": [],
   "orientation": {
     "landscapeRight": false,
@@ -12,7 +12,7 @@
   "webOrientation": "auto",
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
-  "mainCompressionType": "default",
+  "mainCompressionType": "subpackage",
   "mainIsRemote": false,
   "optimizeHotUpdate": false,
   "md5Cache": true,

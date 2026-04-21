@@ -52,10 +52,10 @@ export default class DouYin extends cc.Component {
         this.setupGameInfo();
         
         // 检查是否是抖音环境
-        if (typeof tt === 'undefined') {
-            console.log('非抖音环境，侧边栏功能不可用');
-            return;
-        }
+        // if (typeof tt === 'undefined') {
+        //     console.log('非抖音环境，侧边栏功能不可用');
+        //     return;
+        // }
         
         // 步骤一：启动时监听 onShow
         this.setupOnShowListener();
@@ -164,6 +164,7 @@ export default class DouYin extends cc.Component {
         console.log('领取奖励');
         // 这里实现具体的奖励领取逻辑
         // 例如：增加金币、道具等
+        Banner.Instance.setTr(); 
         
         // 示例：显示奖励领取成功提示
         Banner.Instance.setFreeInfo(2); // 示例：设置剩余免费跳过广告次数为2

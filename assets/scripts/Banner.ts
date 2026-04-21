@@ -8,15 +8,18 @@ export default class Banner extends cc.Component {
   static RegionMask: boolean = false; //地区判断.true为有广告，false为无广告（不需要再此处手动修改，所有广告修改前往BannerManager）
   static IsLogin: boolean = false;
   private FreeInfo: number = 0; //免费跳过广告次数
-  static Owner: string = `著作权人：厦门魔芋互娱科技有限公司`; //健康忠告-著作权人
-  static License: string = `登记号:2024SR0338991`; //健康忠告-登记号
+  static Owner: string = `著作权人：厦门来日方长信息科技有限公司`; //健康忠告-著作权人
+  static License: string = `登记号:2026SA0054418`; //健康忠告-登记号
   static AgeLimit: number = 12; //健康忠告-适龄
 
   static Company: string = `厦门索润网络科技有限公司`; //公司
   static Email: string = `gamekf_666@sina.com`; //联系邮箱
 
+
+  static isTr: boolean = false; 
+
   _appId: string = "115645129";
-  _videoId: string = "8qg06d7bkag1ome140";
+  _videoId: string = "1lkkc2m6fcek11sbh0";
   _customId: string = "";
   _bannerId: string = "";
   _carouselBoxId: string = ""; // 轮播盒子广告ID
@@ -35,6 +38,10 @@ export default class Banner extends cc.Component {
   private _videoLock: boolean = false;//鸿蒙激励视频快速点击锁
   private _isPaused: boolean = false;//游戏是否已暂停
   private _isCreatingCarouselBoxAd: boolean = false; //防止重复创建轮播盒子广告
+
+  setTr() {
+    Banner.isTr = true;
+  }
 
   setFreeInfo(info: number) {
     this.FreeInfo = info;

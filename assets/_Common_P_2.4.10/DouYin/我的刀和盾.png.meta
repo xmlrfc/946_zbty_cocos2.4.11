@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "1d20aebb-5469-4d92-a5e2-f4dc5349a6bd",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 451,
+  "height": 159,
+  "platformSettings": {},
+  "subMetas": {
+    "我的刀和盾": {
+      "ver": "1.0.6",
+      "uuid": "523c10d5-9999-4640-89a7-6e64c2ad56a1",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "1d20aebb-5469-4d92-a5e2-f4dc5349a6bd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 451,
+      "height": 159,
+      "rawWidth": 451,
+      "rawHeight": 159,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

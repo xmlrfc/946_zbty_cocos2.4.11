@@ -1,3 +1,5 @@
+import Banner from "../../scripts/Banner";
+
 const { ccclass, property } = cc._decorator;
 declare var tt: any;
 @ccclass
@@ -8,6 +10,10 @@ export default class NewClass extends cc.Component {
         //     this.node.active = false;
         //     return;
         // }
+        if(Banner.isTr == true) {
+            this.node.active = false;
+        }
+       
     }
 
     @property(cc.Node)
