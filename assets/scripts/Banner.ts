@@ -12,7 +12,7 @@ export default class Banner extends cc.Component {
   static License: string = `登记号:2026SA0054418`; //健康忠告-登记号
   static AgeLimit: number = 12; //健康忠告-适龄
 
-  static Company: string = `厦门索润网络科技有限公司`; //公司
+  static Company: string = `厦门来日方长信息科技有限公司`; //公司
   static Email: string = `gamekf_666@sina.com`; //联系邮箱
 
   _appId: string = "115645129";

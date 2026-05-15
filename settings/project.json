@@ -3,5 +3,8 @@
   "group-list": [
     "default"
   ],
-  "last-module-event-record-time": 1776390706191
+  "last-module-event-record-time": 1778824343553,
+  "migrate-history": [
+    "cloud-function"
+  ]
 }
