@@ -48,15 +48,30 @@ var d = function (e) {
     o.lock = null;
     o.levelNum = null;
     o.level = 0;
+    o.isLocked = true;
+    o.unlocking = false;
     return o;
   }
   i(o, e);
-  o.prototype.onLoad = function () {};
+  o.prototype.onLoad = function () {
+    this.bindLockTouch(this.lock);
+  };
   o.prototype.start = function () {};
+  o.prototype.bindLockTouch = function (e) {
+    if (!e) {
+      return;
+    }
+    e.on(cc.Node.EventType.TOUCH_END, this.click, this);
+    for (var o = 0; o < e.children.length; o++) {
+      this.bindLockTouch(e.children[o]);
+    }
+  };
   o.prototype.init = function (e) {
     var o;
     var t;
     this.level = e;
+    this.isLocked = true;
+    this.unlocking = false;
     this.levelNum.string = this.level + "";
     if (cc.sys.localStorage.getItem("starObj_shaonao")) {
       window.starObj = JSON.parse(cc.sys.localStorage.getItem("starObj_shaonao"));
@@ -72,7 +87,8 @@ var d = function (e) {
     } else {
       o = Number(cc.sys.localStorage.getItem("level" + window.model + "_shaonao") || 1);
     }
-    if (e < o) {
+    if (e < o || this.isVideoUnlocked(e)) {
+      this.isLocked = false;
       this.lock.active = false;
       this.levelNum.node.active = true;
       if (window.starObj) {
@@ -90,6 +106,7 @@ var d = function (e) {
         }
       }
     } else if (e == o) {
+      this.isLocked = false;
       this.lock.active = false;
       this.levelNum.node.active = true;
       this.node.getChildByName("star1").active = false;
@@ -97,7 +114,49 @@ var d = function (e) {
       this.node.getChildByName("star3").active = false;
     }
   };
-  o.prototype.click = function () {
+  o.prototype.click = function (o) {
+    var e = this;
+    if (o && o.stopPropagation) {
+      o.stopPropagation();
+    }
+    if (this.unlocking) {
+      return;
+    }
+    if (this.isLocked && this.canVideoUnlock()) {
+      this.unlocking = true;
+      return void require("./Banner").default.Instance.ShowVideoAd(function () {
+        e.unlocking = false;
+        e.unlockLevel();
+        e.enterLevel();
+      });
+    }
+    if (this.isLocked) {
+      return;
+    }
+    this.enterLevel();
+  };
+  o.prototype.canVideoUnlock = function () {
+    return Number(window.model) == 5 || Number(window.model) == 6 || Number(window.model) == 7;
+  };
+  o.prototype.getVideoUnlockKey = function () {
+    return "videoUnlockLevel" + window.model + "_shaonao";
+  };
+  o.prototype.getVideoUnlockObj = function () {
+    var e = cc.sys.localStorage.getItem(this.getVideoUnlockKey());
+    return e ? JSON.parse(e) : {};
+  };
+  o.prototype.isVideoUnlocked = function (e) {
+    return !!this.getVideoUnlockObj()[e];
+  };
+  o.prototype.unlockLevel = function () {
+    var e = this.getVideoUnlockObj();
+    e[this.level] = true;
+    cc.sys.localStorage.setItem(this.getVideoUnlockKey(), JSON.stringify(e));
+    this.isLocked = false;
+    this.lock.active = false;
+    this.levelNum.node.active = true;
+  };
+  o.prototype.enterLevel = function () {
     var e = this;
     window.powerControl.decreasePower(function () {
       if (window.home && window.home.isModelNowInModel12()) {

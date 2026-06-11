@@ -165,9 +165,11 @@ export default class DouYin extends cc.Component {
         // 这里实现具体的奖励领取逻辑
         // 例如：增加金币、道具等
         Banner.Instance.setTr(); 
+        (window as any).powerControl.addPower(5);
+        (window as any).adUtil.toast("获得体力+5");
         
         // 示例：显示奖励领取成功提示
-        Banner.Instance.setFreeInfo(2); // 示例：设置剩余免费跳过广告次数为2
+
         this.Tips.active = true;
         this.rewardBtn1.active =false;
         this.rewardBtn2.active =false;

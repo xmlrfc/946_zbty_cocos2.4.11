@@ -347,6 +347,7 @@ var u = function (e) {
     }
   };
   o.prototype.canLoadBoxUI = function () {
+    return false;
     window.fromBoxUIFlag = true;
     if (window.loadBoxUIFlag) {
       window.loadBoxUIFlag = false;
@@ -370,6 +371,10 @@ var u = function (e) {
     return true;
   };
   o.prototype.loadBoxUI = function (e, o) {
+    if (typeof e == "function") {
+      e();
+    }
+    return;
     if (o === undefined) {
       o = 1.44;
     }

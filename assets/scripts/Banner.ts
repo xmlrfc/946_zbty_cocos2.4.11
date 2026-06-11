@@ -7,22 +7,25 @@ export default class Banner extends cc.Component {
   static IsNative: boolean = false;
   static RegionMask: boolean = false; //地区判断.true为有广告，false为无广告（不需要再此处手动修改，所有广告修改前往BannerManager）
   static IsLogin: boolean = false;
-  private FreeInfo: number = 0; //免费跳过广告次数
-  static Owner: string = `著作权人：厦门来日方长信息科技有限公司`; //健康忠告-著作权人
-  static License: string = `登记号:2026SA0054418`; //健康忠告-登记号
+  static Owner: string = `著作权人：厦门魔芋互娱科技有限公司`; //健康忠告-著作权人
+  static License: string = `登记号:2024SR0338991`; //健康忠告-登记号
   static AgeLimit: number = 12; //健康忠告-适龄
+
+  static NextScene: string = "loading"   // 健康忠告后-下一个场景
 
   static Company: string = `厦门索润网络科技有限公司`; //公司
   static Email: string = `gamekf_666@sina.com`; //联系邮箱
 
-
-  static isTr: boolean = false; 
+  static isTr: boolean = false;  //判断抖音侧边栏是否已领取过奖励
 
   _appId: string = "115645129";
   _videoId: string = "1lkkc2m6fcek11sbh0";
   _customId: string = "";
   _bannerId: string = "";
   _carouselBoxId: string = ""; // 轮播盒子广告ID
+
+  shareId: string = "ee92a7e2948h8c68d8";   //抖音分享ID
+  rankTitle: string = ""; //抖音排行榜标题
 
   _year: number = 2025;
   _month: number = 10;
@@ -43,16 +46,80 @@ export default class Banner extends cc.Component {
     Banner.isTr = true;
   }
 
-  setFreeInfo(info: number) {
-    this.FreeInfo = info;
+   // 抖音登录
+  TikTokLogin() {
+    tt.login({
+      force: true,
+      success(res) {
+        console.log(`login 调用成功${res.code} ${res.anonymousCode}`);
+      },
+      fail(res) {
+        console.log(`login 调用失败`);
+      },
+    });
   }
-  public GetFreeInfo() {
-    return this.FreeInfo;
+
+
+  // 抖音分享
+  TikTokShare(callback?: Function) {
+    tt.shareAppMessage({
+      templateId: this.shareId, // 替换成通过审核的分享ID
+      query: "",
+      success() {
+        console.log("分享成功");
+        if (callback) {
+          callback();
+        }
+      },
+      fail(e) {
+        console.log("分享失败");
+      },
+    });
   }
+
+  //上传排行榜数据(一般上传分数或者金币等，会根据上传的数据进行排行)
+  TikTokRankingListPush(value: number) {
+      let data = String(value);
+      //@ts-ignore
+      tt.setImRankData({
+          dataType: 0, //成绩为数字类型
+          value: data, //该用户得了999999分
+          priority: 0, //dataType为数字类型，不需要权重，直接传0
+          extra: "extra",
+          zoneId: 'test',
+          success(res) {
+              console.log(`setImRankData success res: ${res}`);
+          },
+          fail(res) {
+              console.log(`setImRankData fail res: ${res.errMsg}`);
+          },
+      });
+  }
+  //拉取排行榜(会弹出抖音排行榜)（使用排行榜功能前一定要登入抖音，否则可能导致异常！）
+  TikTokRankingListGet() {
+      //@ts-ignore
+      tt.getImRankList({
+          relationType: "all", // 总榜
+          dataType: 0, //只圈选type为枚举类型的数据进行排序
+          rankType: "day", //每天凌晨0点更新，只对当天0点到现在写入的数据进行排序
+          suffix: "", //为空或不填，一般枚举类型不需要填后缀
+          rankTitle: this.rankTitle, //标题
+          zoneId: 'test',
+          success(res) {
+              console.log(`getImRankData success res: ${res}`);
+          },
+          fail(res) {
+              console.log(`getImRankData fail res: ${res.errMsg}`);
+          },
+      });
+  }
+
+
   /**Banner广告 */
   ShowBannerAd() {
-    //抖音直接退出
+    //抖音Banner根据运营需求决定是否创建
     if (Banner.Is_DY_GAME) {
+      // this.CreateDYBannerAd();
       return;
     }
     if (!this.TimeManager(this._year, this._month, this._date, this._hour, 0))
@@ -89,10 +156,47 @@ export default class Banner extends cc.Component {
     }
   }
 
+  /**隐藏/销毁Banner广告 */
+  HideBannerAd() {
+    try {
+      console.log("%c隐藏Banner广告", "color:orange; font-size:16px;");
+
+      if (this.bannerAd) {
+        if (typeof this.bannerAd.destroy === "function") {
+          this.bannerAd.destroy();
+        } else if (typeof this.bannerAd.hide === "function") {
+          this.bannerAd.hide();
+        }
+        this.bannerAd = null;
+      }
+
+      if (this.customAd) {
+        if (typeof this.customAd.destroy === "function") {
+          this.customAd.destroy();
+        } else if (typeof this.customAd.hide === "function") {
+          this.customAd.hide();
+        }
+        this.customAd = null;
+      }
+
+      if (this.carouselBoxAd) {
+        if (typeof this.carouselBoxAd.destroy === "function") {
+          this.carouselBoxAd.destroy();
+        } else if (typeof this.carouselBoxAd.hide === "function") {
+          this.carouselBoxAd.hide();
+        }
+        this.carouselBoxAd = null;
+      }
+    } catch (err) {
+      console.error("HideBannerAd error:", err);
+    }
+  }
+
   /**原生广告 */
   ShowCustomAd() {
-    //抖音直接退出
+    //抖音原生根据运营需求决定是否创建
     if (Banner.Is_DY_GAME) {
+      // this.CreateDYCustomAd();   
       return;
     }
     console.log(Banner.Is_HUAWEI_GAME, cc.sys.platform);
@@ -141,26 +245,14 @@ export default class Banner extends cc.Component {
 
   /**激励视频 */
   ShowVideoAd(callback, args?: any) {
-    if (this.FreeInfo > 0) {
-      //剩余免费跳过广告次数不为零就直接获取奖励
-      
-      this.FreeInfo -= 1;
-      console.log(`免费跳过广告，剩余次数：${this.FreeInfo}`);
+    if (!Banner.Is_HarmonyOSNext_GAME) console.log("%c弹出视频", "color:purple; font-size:20px;");
+
+    if (Banner.TestMode || cc.sys.platform == cc.sys.DESKTOP_BROWSER) {
       if (args) {
         callback(args);
       } else {
         callback();
       }
-      return;
-    }
-    if (!Banner.Is_HarmonyOSNext_GAME) console.log("%c弹出视频", "color:purple; font-size:20px;");
-
-    if (Banner.TestMode || cc.sys.platform == cc.sys.DESKTOP_BROWSER) {
-      // if (args) {
-      //   callback(args);
-      // } else {
-        callback();
-      // }
       return;
     }
 
@@ -235,6 +327,10 @@ export default class Banner extends cc.Component {
 
     if (Banner.Is_XIAOMI_GAME) {
       this.AddXMShortcut(reward);
+    }
+
+    if (Banner.Is_DY_GAME) {
+      this.addDYShortcut(reward);
     }
   }
 
@@ -1398,6 +1494,102 @@ export default class Banner extends cc.Component {
   //#endregion
 
   //#region 抖音小游戏
+
+  // 创建抖音原生广告
+  private CreateDYCustomAd(bannerID?: string) {
+      this.DestroyDYCustomAd();
+      try {
+          let param = {};
+          let BannerID = Banner.Instance._customId;
+          if (bannerID != null) {
+              BannerID = bannerID;
+          }
+          //@ts-ignore
+          param.adUnitId = BannerID;
+          //@ts-ignore
+          this.customAd = tt.createInterstitialAd(param);
+          if (this.customAd) {
+              this.customAd.onClose(res => {
+                  // 原生广告关闭事件
+              })
+              this.customAd.onError(res => {
+                  // 原生广告 Error 事件
+              })
+              
+              let p = this.customAd.show()
+              p.then(function (result) {
+                  // 原生广告加载成功
+                  console.log(`原生广告加载成功, result is ${result}`)
+              }).catch(function (error) {
+                  // 原生广告加载失败
+                  console.log(`原生广告加载失败, error is ${error}`)
+              })
+          } else {
+              console.log("创建原生广告组件失败");
+          }
+      } catch (error) {
+          console.log(error);
+      }
+  }
+
+   // 销毁抖音原生广告
+  private DestroyDYCustomAd() {
+      try {
+          if (this.customAd != null) {
+              this.customAd.destroy();
+              this.customAd = null;
+              console.log("销毁原来存在的原生");
+          }
+      }
+      catch (error) {
+          console.log("异常信息：" + error.message);
+      }
+  }
+
+  // 抖音 Banner 广告 
+  private CreateDYBannerAd(bannerID?: string) {
+      this.DestroyDYBannerAd();
+
+      try {
+          let BannerID = Banner.Instance._bannerId;
+          if (bannerID != null) BannerID = bannerID;
+
+          // @ts-ignore
+          this.bannerAd = tt.createBannerAd({
+              adUnitId: BannerID,
+    
+          });
+
+          // 错误监听
+          this.bannerAd.onError((err) => {
+              console.log("Banner 错误:", err);
+          });
+
+          // 【关键】延迟 800ms 再显示，抖音必现规则
+          setTimeout(() => {
+              this.bannerAd.show().then(() => {
+                  console.log("✅ Banner 已显示");
+              }).catch((err) => {
+                  console.log("❌ Banner 显示失败:", err);
+              });
+          }, 800);
+
+      } catch (e) {
+          console.log("Banner 异常:", e);
+      }
+  }
+
+
+  // 销毁Banner广告
+  private DestroyDYBannerAd() {
+      try {
+          if (this.bannerAd) {
+              this.bannerAd.destroy();
+              this.bannerAd = null;
+          }
+      } catch (e) {}
+  }
+
   private CreateDYRewardedVideoAd(callback, args?: any) {
     // 如果已存在广告实例，先销毁
     this.DestroyDYVideoAd();
@@ -1462,6 +1654,20 @@ export default class Banner extends cc.Component {
     } catch (error) {
       console.log("异常信息：" + error.message);
     }
+  }
+
+  // 抖音添加桌面
+  addDYShortcut(reward: Function) {
+    tt.addShortcut({
+      success() {
+        console.log("添加桌面成功");
+        Banner.SetBool(Banner.Key_AddShortcut, true);
+        reward && reward();
+      },
+      fail(err) {
+        console.log("添加桌面失败", err.errMsg);
+      },
+    });
   }
 
 

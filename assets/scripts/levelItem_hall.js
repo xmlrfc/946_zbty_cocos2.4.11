@@ -49,14 +49,30 @@ var s = function (e) {
     o.lock = null;
     o.levelNum = null;
     o.level = 0;
+    o.isLocked = true;
+    o.unlocking = false;
     return o;
   }
   i(o, e);
-  o.prototype.onLoad = function () {};
+  o.prototype.onLoad = function () {
+    this.node.on(cc.Node.EventType.TOUCH_END, this.click, this);
+    this.bindLockTouch(this.lock);
+  };
   o.prototype.start = function () {};
+  o.prototype.bindLockTouch = function (e) {
+    if (!e) {
+      return;
+    }
+    e.on(cc.Node.EventType.TOUCH_END, this.click, this);
+    for (var o = 0; o < e.children.length; o++) {
+      this.bindLockTouch(e.children[o]);
+    }
+  };
   o.prototype.init = function (e) {
     var o;
     this.level = e;
+    this.isLocked = true;
+    this.unlocking = false;
     this.levelNum.string = this.level + "";
     if (window.objectName_hall == "ballhome") {
       o = Number(cc.sys.localStorage.getItem(a.getLocalStorageLevelKey()) || 0);
@@ -65,7 +81,8 @@ var s = function (e) {
     } else {
       o = window.objectName_hall == "ballneat" || window.objectName_hall == "xiaochufangkuai" && window.model == 6 || window.objectName_hall == "caijiqiuqiu" && window.model == 2 ? Number(a.getLocalStorageLevelKey() || 1) : Number(cc.sys.localStorage.getItem(a.getLocalStorageLevelKey()) || 1);
     }
-    if (e <= o || window.noAdFlag) {
+    if (e <= o || window.noAdFlag || this.isVideoUnlocked(e)) {
+      this.isLocked = false;
       this.lock.active = false;
       this.levelNum.node.active = true;
     }
@@ -91,13 +108,54 @@ var s = function (e) {
       this.node.getChildByName("star3").active = true;
     }
   };
-  o.prototype.click = function () {
+  o.prototype.click = function (t) {
+    var e = this;
+    if (t && t.stopPropagation) {
+      t.stopPropagation();
+    }
+    if (this.unlocking) {
+      return;
+    }
+    if (this.isLocked) {
+      this.unlocking = true;
+      return void require("./Banner").default.Instance.ShowVideoAd(function () {
+        e.unlocking = false;
+        e.unlockLevel();
+      });
+    }
+    this.enterLevel(this.isVideoUnlocked(this.level));
+  };
+  o.prototype.canVideoUnlock = function () {
+    return true;
+  };
+  o.prototype.getVideoUnlockKey = function () {
+    return "videoUnlockLevel" + window.model + "_" + window.objectName_hall;
+  };
+  o.prototype.getVideoUnlockObj = function () {
+    var e = cc.sys.localStorage.getItem(this.getVideoUnlockKey());
+    return e ? JSON.parse(e) : {};
+  };
+  o.prototype.isVideoUnlocked = function (e) {
+    return !!this.getVideoUnlockObj()[e];
+  };
+  o.prototype.unlockLevel = function () {
+    var e = this.getVideoUnlockObj();
+    e[this.level] = true;
+    cc.sys.localStorage.setItem(this.getVideoUnlockKey(), JSON.stringify(e));
+    this.isLocked = false;
+    this.lock.active = false;
+    this.levelNum.node.active = true;
+  };
+  o.prototype.enterLevel = function (r) {
     var e = this;
     window.powerControl.decreasePower(function () {
       if (window.objectName_hall == "ballhome") {
         window.currentLevel = e.level - 1;
       } else {
         window.currentLevel = e.level;
+      }
+      if (r) {
+        return void cc.director.loadScene(a.getSceneName());
       }
       if (window.objectName_hall == "ballneat") {
         if (window.currentLevel > Number(a.getLocalStorageLevelKey() || 1)) {

@@ -72,7 +72,7 @@ var d = function (e) {
       window.energy = Number(t);
     } else {
       if (window.miniPlatForm == "oppo") {
-        window.energy = 20;
+        window.energy = 10;
       } else if (window.miniPlatForm == "tt" || window.miniPlatForm == "ks") {
         window.energy = 3;
       } else {
@@ -135,16 +135,36 @@ var d = function (e) {
       cc.sys.localStorage.setItem("energy", window.energy + "");
       e();
     } else {
-      cc.assetManager.loadBundle("resources_energySkin" + window.common_hall.getCommonObj("energySkin"), function (e, o) {
-        o.load("addPower", cc.Prefab, function (e, o) {
-          var t = cc.instantiate(o);
-          cc.find("Canvas").addChild(t);
-          t.zIndex = 3001;
-        });
-      });
+      this.showAddPowerByShare();
     }
   };
   o.prototype.clickAddPower = function () {
+    this.showAddPower();
+  };
+  o.prototype.getAddPowerByShareKey = function () {
+    return "addPowerByShareDate";
+  };
+  o.prototype.canShowAddPowerByShare = function () {
+    return cc.sys.localStorage.getItem(this.getAddPowerByShareKey()) != new Date().toLocaleDateString();
+  };
+  o.prototype.markAddPowerByShare = function () {
+    cc.sys.localStorage.setItem(this.getAddPowerByShareKey(), new Date().toLocaleDateString());
+  };
+  o.prototype.showAddPowerByShare = function () {
+    var e = this;
+    if (!this.canShowAddPowerByShare()) {
+      return void this.showAddPower();
+    }
+    cc.resources.load("addPowerbyShare", cc.Prefab, function (o, t) {
+      if (o) {
+        return void e.showAddPower();
+      }
+      var n = cc.instantiate(t);
+      cc.find("Canvas").addChild(n);
+      n.zIndex = 3001;
+    });
+  };
+  o.prototype.showAddPower = function () {
     cc.assetManager.loadBundle("resources_energySkin" + window.common_hall.getCommonObj("energySkin"), function (e, o) {
       o.load("addPower", cc.Prefab, function (e, o) {
         var t = cc.instantiate(o);

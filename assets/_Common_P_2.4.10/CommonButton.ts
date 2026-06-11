@@ -32,7 +32,30 @@ export default class CommonButton extends cc.Component {
                 this.SetPrivacy.active = true;
                 break;
             case "AddShortCut":
-                Banner.Instance.AddShortcut();
+                Banner.Instance.AddShortcut(() => {
+                    (window as any).powerControl.addPower(10);
+                    (window as any).adUtil.toast("获得体力+10");
+                });
+                break;
+            case "BtnShare":
+                Banner.Instance.TikTokShare(() => {
+                    // 分享成功后执行的回调函数
+                    let node = event.target;
+                    while (node && node.name != "addPowerbyShare") {
+                        node = node.parent;
+                    }
+                    if (node && (window as any).powerControl && (window as any).powerControl.markAddPowerByShare) {
+                        (window as any).powerControl.markAddPowerByShare();
+                    }
+                    (window as any).powerControl.addPower(5);
+                    (window as any).adUtil.toast("获得体力+5");
+                    if (node) {
+                        node.destroy();
+                    }
+                });
+                break;
+            case "BtnRank":
+                Banner.Instance.TikTokRankingListGet();
                 break;
             default:
                 console.log(`${event.target.name} 没有添加点击事件`);

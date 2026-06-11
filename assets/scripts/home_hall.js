@@ -110,6 +110,8 @@ var me = function (e) {
   function o() {
     var o = e !== null && e.apply(this, arguments) || this;
     o.energyPre = null;
+    o.video1 = null;
+    o.video2 = null;
     o.wenzizhaobutongAllPre = null;
     o.addShortcutNode = null;
     o.contentNode = null;
@@ -327,8 +329,19 @@ var me = function (e) {
     s.loadGame(o);
   };
   o.prototype.shaonao = function (e, o) {
+    if (this.needUnlockShaonao(o)) {
+      return void Banner.Instance.ShowVideoAd(function () {
+        cc.sys.localStorage.setItem(this.getShaonaoUnlockKey(o), "true");
+        l.loadGame(o);
+      }.bind(this));
+    }
     l.loadGame(o);
-    Banner.Instance.ShowCustomAd();
+  };
+  o.prototype.getShaonaoUnlockKey = function (e) {
+    return "shaonaoVideoUnlock_model" + e;
+  };
+  o.prototype.needUnlockShaonao = function (e) {
+    return (Number(e) == 5 || Number(e) == 6) && !cc.sys.localStorage.getItem(this.getShaonaoUnlockKey(e));
   };
   o.prototype.shaonaoNew = function (e, o) {
     d.loadGame(o);
@@ -515,6 +528,12 @@ var me = function (e) {
       var i = n.getChildByName("lock");
       e(n.name + "UnlockFlag_" + o[t], i);
     }
+    if (this.video2 && !this.needUnlockShaonao(5)) {
+      this.video2.active = false;
+    }
+    if (this.video1 && !this.needUnlockShaonao(6)) {
+      this.video1.active = false;
+    }
   };
   o.prototype.clickLockNode = function (e, o) {
     window.vivoVideoAd_hall.initRewardedAd(function () {
@@ -577,6 +596,8 @@ var me = function (e) {
   r([ge(cc.Prefab)], o.prototype, "wenzizhaobutongAllPre", undefined);
   r([ge(cc.Node)], o.prototype, "addShortcutNode", undefined);
   r([ge(cc.Node)], o.prototype, "contentNode", undefined);
+  r([ge(cc.Node)], o.prototype, "video1", undefined);
+  r([ge(cc.Node)], o.prototype, "video2", undefined);
   return r([ye], o);
 }(cc.Component);
 exports.default = me;

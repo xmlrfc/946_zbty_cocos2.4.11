@@ -61,8 +61,8 @@ var l = function (e) {
   o.prototype.playVideo = function () {
     window.adUtil.reportAnalytics("energyAddOnce");
     window.vivoVideoAd_hall.initRewardedAd(function () {
-      window.adUtil.toast("获得体力+5");
-      window.powerControl.addPower(5);
+      window.adUtil.toast("获得体力+10");
+      window.powerControl.addPower(10);
       if (window.addPower && window.addPower.node) {
         window.addPower.node.destroy();
       }
