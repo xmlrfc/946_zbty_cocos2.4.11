@@ -56,7 +56,7 @@ var d = function (e) {
   o.prototype.start = function () {
     var e = this;
     this.schedule(function () {
-      e.powerTimeUpdate();
+      // e.powerTimeUpdate();
       e.adTimeLabelUpdate();
     }, 0.2);
     this.updatePowerLabel();
@@ -72,11 +72,11 @@ var d = function (e) {
       window.energy = Number(t);
     } else {
       if (window.miniPlatForm == "oppo") {
-        window.energy = 10;
+        window.energy = 3;
       } else if (window.miniPlatForm == "tt" || window.miniPlatForm == "ks") {
         window.energy = 3;
       } else {
-        window.energy = 15;
+        window.energy = 3;
       }
       cc.sys.localStorage.setItem("energy", window.energy + "");
     }
@@ -92,7 +92,7 @@ var d = function (e) {
     if (!window.energy) {
       window.energy = 0;
     }
-    this.timeLabel.string = window.timeStr;
+    this.timeLabel.string = "";
     this.powerLabel.string = window.energy + "";
   };
   o.prototype.powerTimeUpdate = function () {

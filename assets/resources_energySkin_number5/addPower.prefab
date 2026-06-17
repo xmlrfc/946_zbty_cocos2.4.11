@@ -459,7 +459,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 152.34,
+      "width": 130.07999999999998,
       "height": 110.8
     },
     "_anchorPoint": {
@@ -511,8 +511,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "X10",
-    "_N$string": "X10",
+    "_string": "X5 ",
+    "_N$string": "X5 ",
     "_fontSize": 80,
     "_lineHeight": 80,
     "_enableWrapText": true,

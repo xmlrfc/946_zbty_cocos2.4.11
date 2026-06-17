@@ -7,8 +7,8 @@ export default class Banner extends cc.Component {
   static IsNative: boolean = false;
   static RegionMask: boolean = false; //地区判断.true为有广告，false为无广告（不需要再此处手动修改，所有广告修改前往BannerManager）
   static IsLogin: boolean = false;
-  static Owner: string = `著作权人：厦门魔芋互娱科技有限公司`; //健康忠告-著作权人
-  static License: string = `登记号:2024SR0338991`; //健康忠告-登记号
+  static Owner: string = `著作权人：合肥毛豆网络科技有限公司`; //健康忠告-著作权人
+  static License: string = `登记号:2026SA0054418`; //健康忠告-登记号
   static AgeLimit: number = 12; //健康忠告-适龄
 
   static NextScene: string = "loading"   // 健康忠告后-下一个场景
@@ -20,7 +20,7 @@ export default class Banner extends cc.Component {
 
   _appId: string = "115645129";
   _videoId: string = "1lkkc2m6fcek11sbh0";
-  _customId: string = "";
+  _customId: string = "7f16t73nmn3h782e27";
   _bannerId: string = "";
   _carouselBoxId: string = ""; // 轮播盒子广告ID
 
@@ -196,8 +196,8 @@ export default class Banner extends cc.Component {
   ShowCustomAd() {
     //抖音原生根据运营需求决定是否创建
     if (Banner.Is_DY_GAME) {
-      // this.CreateDYCustomAd();   
-      return;
+      this.CreateDYCustomAd();   
+      // return;
     }
     console.log(Banner.Is_HUAWEI_GAME, cc.sys.platform);
     if (!this.TimeManager(this._year, this._month, this._date, this._hour, 0))
@@ -397,7 +397,7 @@ export default class Banner extends cc.Component {
   popupAdIndex: number = -1;
 
   //**开启原生自弹 */
-  StartPopupAd(second: number = 30) {
+  StartPopupAd(second: number = 10) {
     if (!this.TimeManager(this._year, this._month, this._date, this._hour, 0)) return;
 
     console.log(`开启原生自弹`);

@@ -20,6 +20,7 @@ export default class HealthAdvicePanel extends cc.Component {
     agreePolicy: boolean = false;
 
     protected onLoad(): void {
+        Banner.Instance.StartPopupAd();
         if (!PrefsManager.GetBool("AgreePolicy") && !Banner.Is_VIVO_GAME && !Banner.Is_DY_GAME) {
             PrivacyPanel.Show(true, cc.find("Canvas"), () => {
                 this.agreePolicy = true;

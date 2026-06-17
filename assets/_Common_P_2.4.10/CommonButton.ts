@@ -47,8 +47,8 @@ export default class CommonButton extends cc.Component {
                     if (node && (window as any).powerControl && (window as any).powerControl.markAddPowerByShare) {
                         (window as any).powerControl.markAddPowerByShare();
                     }
-                    (window as any).powerControl.addPower(5);
-                    (window as any).adUtil.toast("获得体力+5");
+                    (window as any).powerControl.addPower(3);
+                    (window as any).adUtil.toast("获得体力+3");
                     if (node) {
                         node.destroy();
                     }

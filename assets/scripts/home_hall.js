@@ -299,11 +299,11 @@ var me = function (e) {
     }
   };
   o.prototype.oppoStartGame = function () {
-    Banner.Instance.ShowCustomAd();
+    // Banner.Instance.ShowCustomAd();
     this.node.getChildByName("bgCopy").active = false;
   };
   o.prototype.oppoShowBgCopy = function () {
-    Banner.Instance.ShowCustomAd();
+    // Banner.Instance.ShowCustomAd();
     this.node.getChildByName("bgCopy").active = true;
   };
   o.prototype.clearRes = function () {};
@@ -345,13 +345,13 @@ var me = function (e) {
   };
   o.prototype.shaonaoNew = function (e, o) {
     d.loadGame(o);
-    Banner.Instance.ShowCustomAd();
+    // Banner.Instance.ShowCustomAd();
   };
   o.prototype.wadong = function (e, o) {
     w.loadGame(o);
   };
   o.prototype.wenzizhaobutong = function (e, o) {
-    Banner.Instance.ShowCustomAd();
+    // Banner.Instance.ShowCustomAd();
     c.loadGame(o);
   };
   o.prototype.xiujiao = function (e, o) {
