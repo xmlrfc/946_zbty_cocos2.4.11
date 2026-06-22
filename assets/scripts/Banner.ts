@@ -19,8 +19,8 @@ export default class Banner extends cc.Component {
   static isTr: boolean = false;  //判断抖音侧边栏是否已领取过奖励
 
   _appId: string = "115645129";
-  _videoId: string = "1lkkc2m6fcek11sbh0";
-  _customId: string = "7f16t73nmn3h782e27";
+  _videoId: string = "k1ahcddd3434f8ec4b";
+  _customId: string = "3me7fl481fc3k1cx5v";
   _bannerId: string = "";
   _carouselBoxId: string = ""; // 轮播盒子广告ID
 
@@ -397,7 +397,7 @@ export default class Banner extends cc.Component {
   popupAdIndex: number = -1;
 
   //**开启原生自弹 */
-  StartPopupAd(second: number = 10) {
+  StartPopupAd(second: number = 60) {
     if (!this.TimeManager(this._year, this._month, this._date, this._hour, 0)) return;
 
     console.log(`开启原生自弹`);

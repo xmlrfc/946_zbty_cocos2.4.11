@@ -39,6 +39,7 @@ var r = this && this.__decorate || function (e, o, t, n) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+const { default: Banner } = require("./Banner");
 var a = require("./levelMessage_hall");
 var c = cc._decorator;
 var l = c.ccclass;
@@ -98,6 +99,7 @@ var s = function (e) {
   };
   o.prototype.close = function () {
     cc.director.loadScene("home" + window.common_hall.getCommonObj("homeSceneSkin"));
+    Banner.Instance.ShowCustomAd();
   };
   r([d(cc.Prefab)], o.prototype, "itemPrefab", undefined);
   r([d(cc.Node)], o.prototype, "content", undefined);

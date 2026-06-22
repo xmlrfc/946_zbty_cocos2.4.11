@@ -373,7 +373,7 @@ var h = function (e) {
             o = cc.instantiate(e);
             window.game.node.addChild(o);
             window.game.showFailUI();
-            // Banner.Instance.ShowCustomAd();
+            Banner.Instance.ShowCustomAd();
             t.label = 3;
           case 3:
             return [2];

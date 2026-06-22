@@ -290,6 +290,7 @@ var h = function (e) {
       e.failNode.active = false;
     }, 0.5);
     console.log("fail");
+    Banner.Instance.ShowCustomAd();
   };
   o.prototype.clickSuccess = function () {
     var e = this;

@@ -40,6 +40,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var a = require("./adBase_hall");
+const { default: Banner } = require("./Banner");
 var c = require("./levelMessage_hall");
 var l = cc._decorator;
 var d = l.ccclass;

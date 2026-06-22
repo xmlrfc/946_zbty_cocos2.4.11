@@ -1,3 +1,5 @@
+const { default: Banner } = require("./Banner");
+
 var n;
 var i = this && this.__extends || (n = function (e, o) {
   return (n = Object.setPrototypeOf || {
@@ -236,6 +238,7 @@ var u = function (e) {
   };
   o.prototype.close = function () {
     cc.director.loadScene("home" + window.common_hall.getCommonObj("homeSceneSkin"));
+    Banner.Instance.ShowCustomAd();
   };
   r([s(cc.Prefab)], o.prototype, "itemPrefab", undefined);
   r([s(cc.Node)], o.prototype, "content", undefined);

@@ -119,9 +119,7 @@ var me = function (e) {
   }
   i(o, e);
   o.prototype.onLoad = function () {
-    // setInterval(() => {
-    //   Banner.Instance.ShowCustomAd();
-    // }, 20000);
+    Banner.Instance.StartPopupAd();
     window.homeHall = this;
     window.currentLevel = undefined;
     var e = this.node.getChildByName("bgCopy");
@@ -230,6 +228,9 @@ var me = function (e) {
       e.judgeEnergyLimitless();
     });
   };
+  o.prototype.onDestroy = function () {
+    Banner.Instance.StopPopupAd();
+  }
   o.prototype.scrollEvent = function () {
     window.homeScrollOffseyY = this.node.getChildByName("titlebg").getComponent(cc.ScrollView).getScrollOffset();
   };

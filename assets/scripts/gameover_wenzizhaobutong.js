@@ -40,6 +40,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var a = require("./adBase_wenzizhaobutong");
+const { default: Banner } = require("./Banner");
 var c = require("./zi_wenzizhaobutong");
 var l = cc._decorator;
 var d = l.ccclass;

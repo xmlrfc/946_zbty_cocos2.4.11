@@ -439,7 +439,7 @@ var h = function (e) {
     });
   };
   o.prototype.showFailUI = function () {
-    // Banner.Instance.ShowCustomAd();
+    Banner.Instance.ShowCustomAd();
     window.game.loadFailFlag = true;
     cc.assetManager.loadBundle("resources_shaonao", function (e, o) {
       var t = window.adUtil.useHallData("gameoverSkin", "shaonao") ? window.adUtil.useHallData("gameoverSkin", "shaonao") : "5";
